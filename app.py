@@ -57,7 +57,7 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     currency = parameters.get("crypto-currency")
-
+	speech =  "bitcoin price is";
     return {
         "speech": speech,
         "displayText": currency,
