@@ -54,32 +54,25 @@ def processRequest(req):
         return {}
         
         
-    result = req.get("result")
-    parameters = result.get("parameters")
-    currency = parameters.get("crypto-currency")
-	speech =  "bitcoin price is";
-    return {
-        "speech": speech,
-        "displayText": currency,
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
-   #  baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
-#     result = urlopen(baseurl).read()
-#     data = json.loads(result)
-#     res = makeWebhookResult(data)
-#     return res
+  #   result = req.get("result")
+#     parameters = result.get("parameters")
+#     currency = parameters.get("crypto-currency")
+	
+    baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
+    result = urlopen(baseurl).read()
+    data = json.loads(result)
+    res = makeWebhookResult(data)
+    return res
 
 
 
 def makeWebhookResult(data):
-    # price = data.get('buy')
+#     price = data.get('buy')
 #     if price is None:
 #         return {}
-# 
-#     # print(json.dumps(item, indent=4))
-# 
+
+#     print(json.dumps(item, indent=4))
+
     speech =  "bitcoin price is ";
 
     print("Response:")
