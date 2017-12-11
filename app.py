@@ -60,14 +60,15 @@ def processRequest(req):
 	
     baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
     result = urlopen(baseurl).read()
-    print(result);
-#     data = json.loads(result)
-    res = makeWebhookResult(result)
+    print("data :");
+    data = json.loads(result)
+    print(data);
+    res = makeWebhookResult()
     return res
 
 
 
-def makeWebhookResult(result):
+def makeWebhookResult():
 #     price = data.get('buy')
 #     if price is None:
 #         return {}
