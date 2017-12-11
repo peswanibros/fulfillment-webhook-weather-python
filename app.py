@@ -58,11 +58,18 @@ def processRequest(req):
     parameters = result.get("parameters")
     currency = parameters.get("crypto-currency")
 
-    baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
-    result = urlopen(baseurl).read()
-    data = json.loads(result)
-    res = makeWebhookResult(data)
-    return res
+    return {
+        "speech": speech,
+        "displayText": currency,
+        # "data": data,
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"
+    }
+   #  baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
+#     result = urlopen(baseurl).read()
+#     data = json.loads(result)
+#     res = makeWebhookResult(data)
+#     return res
 
 
 
@@ -80,7 +87,7 @@ def makeWebhookResult(data):
 
     return {
         "speech": speech,
-        "displayText": data,
+        "displayText": speech,
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
