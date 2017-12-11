@@ -54,19 +54,19 @@ def processRequest(req):
         return {}
         
         
-  #   result = req.get("result")
-#     parameters = result.get("parameters")
-#     currency = parameters.get("crypto-currency")
-# 
-#     baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
-#     result = urlopen(yql_url).read()
-#     data = json.loads(result)
-    res = makeWebhookResult()
+    result = req.get("result")
+    parameters = result.get("parameters")
+    currency = parameters.get("crypto-currency")
+
+    baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
+    result = urlopen(yql_url).read()
+    data = json.loads(result)
+    res = makeWebhookResult(data)
     return res
 
 
 
-def makeWebhookResult():
+def makeWebhookResult(data):
     # price = data.get('buy')
 #     if price is None:
 #         return {}
@@ -80,7 +80,7 @@ def makeWebhookResult():
 
     return {
         "speech": speech,
-        "displayText": speech,
+        "displayText": data,
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
