@@ -58,9 +58,7 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     currency = parameters.get("crypto-currency")
-	print(result)
-	print(parameters)
-	print(currency)
+    
     baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
     response = urllib2.urlopen(baseurl)
 	html = response.read()
