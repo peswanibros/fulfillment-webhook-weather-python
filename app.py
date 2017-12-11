@@ -58,9 +58,14 @@ def processRequest(req):
 #     parameters = result.get("parameters")
 #     currency = parameters.get("crypto-currency")
 	
-    baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
-    result = urlopen(baseurl).read()
-    print("data :");
+    baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr";
+        result = urlopen(baseurl).read()
+
+    from StringIO import StringIO
+ io = StringIO()
+ json.dump(result, io)
+ print(io.getvalue())
+    print("data :")
     data = json.loads(result)
     print(data);
     res = makeWebhookResult()
