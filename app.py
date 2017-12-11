@@ -52,7 +52,7 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "cryptoPrice":
         return {}
-    baseurl = "https://www.google.com"
+    baseurl = "http://www.json-generator.com/api/json/get/cqlIdHfiuW?indent=2"
     result = urlopen(baseurl).read()
     print(result)
     data = json.loads(result)
