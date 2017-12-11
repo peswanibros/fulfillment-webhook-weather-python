@@ -54,26 +54,26 @@ def processRequest(req):
         return {}
         
         
-    result = req.get("result")
-    parameters = result.get("parameters")
-    currency = parameters.get("crypto-currency")
-
-    baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
-    result = urlopen(yql_url).read()
-    data = json.loads(result)
-    res = makeWebhookResult(data, currency)
+  #   result = req.get("result")
+#     parameters = result.get("parameters")
+#     currency = parameters.get("crypto-currency")
+# 
+#     baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
+#     result = urlopen(yql_url).read()
+#     data = json.loads(result)
+    res = makeWebhookResult()
     return res
 
 
 
-def makeWebhookResult(data, currency):
-    price = data.get('buy')
-    if price is None:
-        return {}
-
-    # print(json.dumps(item, indent=4))
-
-    speech = currency+ " price is "+ price;
+def makeWebhookResult():
+    # price = data.get('buy')
+#     if price is None:
+#         return {}
+# 
+#     # print(json.dumps(item, indent=4))
+# 
+    speech =  "bitcoin price is ";
 
     print("Response:")
     print(speech)
