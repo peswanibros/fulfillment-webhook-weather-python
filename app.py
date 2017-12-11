@@ -59,7 +59,7 @@ def processRequest(req):
     currency = parameters.get("crypto-currency")
 
     baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
-    result = urlopen(yql_url).read()
+    result = urlopen(baseurl).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
     return res
