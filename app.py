@@ -54,7 +54,7 @@ def processRequest(req):
         return {}
     baseurl = "https://api.coindesk.com/v1/bpi/currentprice.json"
     result = urlopen(baseurl).read()
-    print(result)
+#     print(result)
     data = json.loads(result)
     res = makeWebhookResult()
     return res
