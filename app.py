@@ -52,7 +52,10 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "cryptoPrice":
         return {}
-    
+        
+        
+    result = req.get("result")
+    parameters = result.get("parameters")
     currency = parameters.get("crypto-currency")
 
     baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"    
