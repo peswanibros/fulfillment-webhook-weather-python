@@ -22,7 +22,6 @@ from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 
-import urllib2
 import json
 import os
 
@@ -54,7 +53,7 @@ def processRequest(req):
     if req.get("result").get("action") != "cryptoPrice":
         return {}
     baseurl = "https://www.zebapi.com/api/v1/market/ticker/btc/inr"
-    result = urllib2.urlopen(baseurl).read()
+    result = urlopen(baseurl).read()
     print(result)
     data = json.loads(result)
     res = makeWebhookResult()
